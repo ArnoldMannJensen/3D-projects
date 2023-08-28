@@ -4,9 +4,9 @@ lookX=0;
 lookY=0;
 lookZ=0;
 value=0;
-boxX=0;
+boxX=20;
 boxY=0;
-z=0;
+z=400;
 ZZize=20;
 cooler=10;
 function preload()
@@ -16,7 +16,8 @@ function preload()
 function setup() 
 {
   createCanvas(400,400,WEBGL);
-  camZ=(height/2)/(tan(PI/6));
+  angleMode=(DEGREES);
+  camZ=(400/2)/(tan(PI/6));
 }
 
 function draw() 
@@ -26,26 +27,30 @@ function draw()
 
   z=z+10;
   push();
-  translate(boxX,boxY,z);
+  translate(boxX,boxY,z-200);
   fill(cooler);
   box(ZZize);
   pop();
 
-  if(camZ<=ZZize/2+z)
+  if(boxY+ZZize/2>=camY && boxY+ZZize/2<=camY)
   {
+    if(boxX+ZZize/2>=camX && boxX-ZZize/2<=camX)
+    {
     cooler=100;
+    }
   }
-
-  if(camZ-z<=ZZize/2)
+  
+  
+  if(camZ+ZZize/2<=z)
   {
-  z=-200;
-  boxX=camX;
-  boxY=camY;
   value=random(-20,20);
+  z=-200;
+  cooler=0;
   }
-
+  
   push();
-  translate(0,0,-100);
+  noStroke();
+  translate(0,0,-200);
   texture(SOE);
   plane(1000);
   pop();
