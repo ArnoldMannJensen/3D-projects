@@ -4,10 +4,10 @@ lookX=0;
 lookY=0;
 lookZ=0;
 value=0;
-boxX=20;
+boxX=0;
 boxY=0;
 z=400;
-ZZize=100;
+ZZize=20;
 cooler=10;
 function preload()
 {
@@ -36,15 +36,20 @@ function draw()
   {
     if(boxX-ZZize/2<=camX && boxX+ZZize/2>=camX)
     {
-    cooler=100;
+      if(camZ+ZZize+200/2<=z)
+      {
+      value=random(-20,20);
+      z=-200;
+      cooler=100;
+      }
     }
   }
-  if(camZ+ZZize/2<=z)
-  {
-  value=random(-20,20);
-  z=-200;
-  cooler=0;
-  }
+  if(camZ+ZZize+201/2<=z)
+      {
+      value=random(-20,20);
+      z=-200;
+      cooler=0;
+      }
 
   push();
   noStroke();
