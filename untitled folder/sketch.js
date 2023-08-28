@@ -26,24 +26,23 @@ function draw()
 
   z=z+10;
   push();
-  translate(boxX+value,boxY+value,z);
+  translate(boxX,boxY,z);
   fill(cooler);
   box(ZZize);
   pop();
-if(boxX+value>boxX+ZZize/2)
-{
- if(boxX-value>boxX+ZZize/2)
- {
-  cooler=cooler+1;
- }
-}
-if(camZ-z<=ZZize/2)
-{
-z=-200;
-boxX=camX;
-boxY=camY;
-value=random(-20,20);
-}
+
+  if(camZ<=ZZize/2+z)
+  {
+    cooler=100;
+  }
+
+  if(camZ-z<=ZZize/2)
+  {
+  z=-200;
+  boxX=camX;
+  boxY=camY;
+  value=random(-20,20);
+  }
 
   push();
   translate(0,0,-100);
