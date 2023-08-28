@@ -7,7 +7,7 @@ value=0;
 boxX=20;
 boxY=0;
 z=400;
-ZZize=20;
+ZZize=100;
 cooler=10;
 function preload()
 {
@@ -32,22 +32,20 @@ function draw()
   box(ZZize);
   pop();
 
-  if(boxY+ZZize/2>=camY && boxY+ZZize/2<=camY)
+  if(boxY-ZZize/2<=camY && boxY+ZZize/2>=camY)
   {
-    if(boxX+ZZize/2>=camX && boxX-ZZize/2<=camX)
+    if(boxX-ZZize/2<=camX && boxX+ZZize/2>=camX)
     {
     cooler=100;
     }
   }
-  
-  
   if(camZ+ZZize/2<=z)
   {
   value=random(-20,20);
   z=-200;
   cooler=0;
   }
-  
+
   push();
   noStroke();
   translate(0,0,-200);
